@@ -1,0 +1,9 @@
+// docs header
+@import '~/theme-chalk/src/index.scss';
+
+.yzj-header {
+  box-sizing: border-box;
+  width: 100%;
+  height: 58px;
+  background: $--color-background;
+}

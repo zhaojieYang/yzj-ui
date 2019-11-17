@@ -1,0 +1,27 @@
+@import './theme.scss';
+
+/* Color
+-------------------------- */
+html {
+  $theme: $light !global;
+}
+
+html[theme='dark'] {
+  $theme: $dark !global;
+}
+
+$--color-primary: map-get($theme, --color-primary);
+$--color-primary-active: map-get($theme, --color-primary-active);
+$--color-secondary: map-get($theme, --color-primary-active);
+$--color-secondary-active: map-get($theme, --color-primary-active);
+$--color-success: map-get($theme, --color-primary-active);
+$--color-success-active: map-get($theme, --color-primary-active);
+$--color-info: map-get($theme, --color-info);
+$--color-info-active: map-get($theme, --color-info-active);
+$--color-warning: map-get($theme, --color-warning);
+$--color-warning-active: map-get($theme, --color-warning-active);
+$--color-dangerous: map-get($theme, --color-dangerous);
+$--color-dangerous-active: map-get($theme, --color-dangerous-active);
+$--color-text: map-get($theme, --color-text);
+$--color-text-active: map-get($theme, --color-text-active);
+$--color-background: map-get($theme, --color-background);

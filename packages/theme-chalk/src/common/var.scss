@@ -2,26 +2,111 @@
 
 /* Color
 -------------------------- */
+:root {
+  --color-background-heading: #46285d;
+}
+
 html {
-  $theme: $light !global;
+  // $theme: $light !global;
+  --color-primary: #{map-get($light, --color-primary)};
+  --color-primary-hover: #{map-get($light, --color-primary-hover)};
+  --color-primary-active: #{map-get($light, --color-primary-active)};
+  --color-secondary: #{map-get($light, --color-secondary)};
+  --color-secondary-hover: #{map-get($light, --color-secondary-hover)};
+  --color-secondary-active: #{map-get($light, --color-secondary-active)};
+  --color-success: #{map-get($light, --color-success)};
+  --color-success-hover: #{map-get($light, --color-success-hover)};
+  --color-success-active: #{map-get($light, --color-success-active)};
+  --color-info: #{map-get($light, --color-info)};
+  --color-info-hover: #{map-get($light, --color-info-hover)};
+  --color-info-active: #{map-get($light, --color-info-active)};
+  --color-warning: #{map-get($light, --color-warning)};
+  --color-warning-hover: #{map-get($light, --color-warning-hover)};
+  --color-warning-active: #{map-get($light, --color-warning-active)};
+  --color-dangerous: #{map-get($light, --color-dangerous)};
+  --color-dangerous-hover: #{map-get($light, --color-dangerous-hover)};
+  --color-dangerous-active: #{map-get($light, --color-dangerous-active)};
+  --color-text: #{map-get($light, --color-text)};
+  --color-text-active: #{map-get($light, --color-text-active)};
+  --color-background-body: #{map-get($light, --color-background-body)};
+  --color-drawer-background: #{map-get($light, --color-drawer-background)};
 }
 
-html[theme='dark'] {
-  $theme: $dark !global;
+html[data-theme='dark'] {
+  // $theme: $dark !global;
+  --color-primary: #{map-get($dark, --color-primary)};
+  --color-primary-hover: #{map-get($dark, --color-primary-hover)};
+  --color-primary-active: #{map-get($dark, --color-primary-active)};
+  --color-secondary: #{map-get($dark, --color-secondary)};
+  --color-secondary-hover: #{map-get($dark, --color-secondary-hover)};
+  --color-secondary-active: #{map-get($dark, --color-secondary-active)};
+  --color-success: #{map-get($dark, --color-success)};
+  --color-success-hover: #{map-get($dark, --color-success-hover)};
+  --color-success-active: #{map-get($dark, --color-success-active)};
+  --color-info: #{map-get($dark, --color-info)};
+  --color-info-hover: #{map-get($dark, --color-info-hover)};
+  --color-info-active: #{map-get($dark, --color-info-active)};
+  --color-warning: #{map-get($dark, --color-warning)};
+  --color-warning-hover: #{map-get($dark, --color-warning-hover)};
+  --color-warning-active: #{map-get($dark, --color-warning-active)};
+  --color-dangerous: #{map-get($dark, --color-dangerous)};
+  --color-dangerous-hover: #{map-get($dark, --color-dangerous-hover)};
+  --color-dangerous-active: #{map-get($dark, --color-dangerous-active)};
+  --color-text: #{map-get($dark, --color-text)};
+  --color-text-active: #{map-get($dark, --color-text-active)};
+  --color-background-body: #{map-get($dark, --color-background-body)};
+  --color-drawer-background: #{map-get($dark, --color-drawer-background)};
 }
 
-$--color-primary: map-get($theme, --color-primary);
-$--color-primary-active: map-get($theme, --color-primary-active);
-$--color-secondary: map-get($theme, --color-primary-active);
-$--color-secondary-active: map-get($theme, --color-primary-active);
-$--color-success: map-get($theme, --color-primary-active);
-$--color-success-active: map-get($theme, --color-primary-active);
-$--color-info: map-get($theme, --color-info);
-$--color-info-active: map-get($theme, --color-info-active);
-$--color-warning: map-get($theme, --color-warning);
-$--color-warning-active: map-get($theme, --color-warning-active);
-$--color-dangerous: map-get($theme, --color-dangerous);
-$--color-dangerous-active: map-get($theme, --color-dangerous-active);
-$--color-text: map-get($theme, --color-text);
-$--color-text-active: map-get($theme, --color-text-active);
-$--color-background: map-get($theme, --color-background);
+/* Font Family
+-------------------------- */
+$font-family-heading: Merriweather, 'turva-sans', -apple-system,
+  BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !default;
+$font-family-text: Averta, 'turva-sans', -apple-system, BlinkMacSystemFont,
+  'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+  'Segoe UI Emoji', 'Segoe UI Symbol' !default;
+
+/* Font Size
+-------------------------- */
+$font-size-x-small: 0.75rem !default;
+$font-size-small: 0.875rem !default;
+$font-size-medium: 1rem !default;
+$font-size-large: 1.25rem !default;
+$font-size-x-large: 1.5rem !default;
+$font-size-xx-large: 2.25rem !default;
+$font-size-xxx-large: 3rem !default;
+
+/* Border Radius
+-------------------------- */
+$radius-sharp: 0 !default;
+$radius-pill: 20rem !default;
+$radius-default: 4px !default;
+$radius-circle: 50% !default;
+
+/* Border Radius
+-------------------------- */
+$shadow-tooltip: 0 2px 10px 0 rgba(117, 117, 117, 0.13) !default;
+$shadow-hover: 0 2px 10px 0 rgba(117, 117, 117, 0.15) !default;
+$shadow-modal: 0 2px 20px 0 rgba(0, 0, 0, 0.2) !default;
+$shadow-default: 0 2px 6px 0 rgba(117, 117, 117, 0.13) !default;
+$shadow-card: 0 2px 6px 0 rgba(117, 117, 117, 0.13),
+  0 -1px 0 0 rgba(0, 0, 0, 0.09), -1px 0 0 0 rgba(0, 0, 0, 0.07),
+  1px 0 0 0 rgba(0, 0, 0, 0.07), 0 1px 0 0 rgba(0, 0, 0, 0.07) !default;
+
+/* Z Index
+-------------------------- */
+$z-index-default: 1;
+$z-index-masked: 100;
+$z-index-mask: 200;
+$z-index-sticky: 300;
+$z-index-header: 400;
+$z-index-toast: 500;
+$z-index-dropdown: 600;
+$z-index-overlay: 700;
+$z-index-spinner: 800;
+$z-index-modal: 900;
+$z-index-popup: 950;
+
+/* Drawer
+-------------------------- */

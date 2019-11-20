@@ -1,0 +1,11 @@
+@import '../common/var.scss';
+
+.yzj-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 206px;
+  height: 100%;
+  z-index: $z-index-sticky;
+  background: var(--color-drawer-background);
+}

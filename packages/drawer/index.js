@@ -1,6 +1,6 @@
 import Drawer from './src/drawer'
 
-Drawer.install() = function(Vue) {
+Drawer.install = function(Vue) {
   Vue.component(Drawer.name, Drawer)
 }
 

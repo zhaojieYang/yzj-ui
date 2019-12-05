@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <yzj-header />
-    <yzj-drawer />
+    <yzj-drawer :visible="visible">
+    </yzj-drawer>
+    <button class="yzj-drawer-toggle"
+            @click.stop="ftoggleDrawer()">抽屉</button>
     <router-view />
   </div>
 </template>
@@ -9,13 +12,21 @@
 <script lang="ts">
 import Vue from "vue";
 import YzjHeader from "./components/yzj-header.vue";
-import YzjDrawer from "~/drawer";
 
 export default Vue.extend({
   name: "app",
   components: {
-    "yzj-header": YzjHeader,
-    "yzj-drawer": YzjDrawer
+    "yzj-header": YzjHeader
+  },
+  data() {
+    return {
+      visible: true
+    };
+  },
+  methods: {
+    ftoggleDrawer() {
+      this.visible = !this.visible;
+    }
   }
 });
 </script>
@@ -28,5 +39,19 @@ export default Vue.extend({
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  .yzj-drawer-toggle {
+    display: none;
+    position: fixed;
+    bottom: 3px;
+    left: 3px;
+    z-index: 500;
+  }
+
+  @media screen and (max-width: 768px) {
+    .yzj-drawer-toggle {
+      display: block;
+    }
+  }
 }
 </style>

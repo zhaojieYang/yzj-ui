@@ -1,7 +1,7 @@
 import yzjButton from './button/index.js'
-import yzjMenu from './menu/index.js'
+import yzjDrawer from './drawer/index.js'
 
-const components = [yzjButton, yzjMenu]
+const components = [yzjButton, yzjDrawer]
 
 const install = function(Vue) {
   if (install.installed) return
@@ -15,5 +15,5 @@ if (typeof window !== 'undefined' && window.Vue) {
 export default {
   install,
   yzjButton,
-  yzjMenu
+  yzjDrawer
 }

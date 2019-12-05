@@ -1,11 +1,164 @@
 @import '../common/var.scss';
 
-.yzj-drawer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 206px;
-  height: 100%;
-  z-index: $z-index-sticky;
-  background: var(--color-drawer-background);
+@keyframes yzj-drawer-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@mixin drawer-animation($direction) {
+  @keyframes #{$direction}-drawer-in {
+    0% {
+      @if $direction == ltr {
+        transform: translate(-100%, 0px);
+      }
+
+      @if $direction == rtl {
+        transform: translate(100%, 0px);
+      }
+
+      @if $direction == ttb {
+        transform: translate(0px, -100%);
+      }
+
+      @if $direction == btt {
+        transform: translate(0px, 100%);
+      }
+    }
+
+    100% {
+      @if $direction == ltr {
+        transform: translate(0px, 0px);
+      }
+
+      @if $direction == rtl {
+        transform: translate(0px, 0px);
+      }
+
+      @if $direction == ttb {
+        transform: translate(0px, 0px);
+      }
+
+      @if $direction == btt {
+        transform: translate(0px, 0px);
+      }
+    }
+  }
+
+  @keyframes #{$direction}-drawer-out {
+    0% {
+      @if $direction == ltr {
+        transform: translate(0px, 0px);
+      }
+
+      @if $direction == rtl {
+        transform: translate(0px, 0px);
+      }
+
+      @if $direction == ttb {
+        transform: translate(0px, 0px);
+      }
+
+      @if $direction == btt {
+        transform: translate(0px, 0);
+      }
+    }
+
+    100% {
+      @if $direction == ltr {
+        transform: translate(-100%, 0px);
+      }
+
+      @if $direction == rtl {
+        transform: translate(100%, 0px);
+      }
+
+      @if $direction == ttb {
+        transform: translate(0px, -100%);
+      }
+
+      @if $direction == btt {
+        transform: translate(0px, 100%);
+      }
+    }
+  }
+}
+
+@include drawer-animation(rtl);
+@include drawer-animation(ltr);
+@include drawer-animation(ttb);
+@include drawer-animation(btt);
+
+@mixin animation-in($direction) {
+  &.#{$direction} {
+    animation: #{$direction}-drawer-in 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  }
+}
+
+@mixin animation-out($direction) {
+  &.#{$direction} {
+    animation: #{$direction}-drawer-out 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  }
+}
+
+.yzj-drawer-fade-enter-active {
+  animation: yzj-drawer-fade-in 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+}
+
+.yzj-drawer-fade-leave-active {
+  animation: yzj-drawer-fade-in 225ms cubic-bezier(0, 0, 0.2, 1) 0ms reverse;
+}
+
+$directions: rtl, ltr, ttb, btt;
+
+.yzj-drawer-wrapper {
+  .yzj-drawer {
+    position: absolute;
+    overflow: hidden;
+    z-index: $z-index-sticky;
+    background: var(--color-drawer-background);
+
+    @each $direction in $directions {
+      @include animation-out($direction);
+    }
+
+    &.ltr,
+    &.rtl {
+      height: 100%;
+      top: 0;
+    }
+
+    &.ttb,
+    &.btt {
+      width: 100%;
+      left: 0;
+    }
+
+    &.ltr {
+      left: 0;
+    }
+
+    &.rtl {
+      right: 0;
+    }
+
+    &.ttb {
+      top: 0;
+    }
+
+    &.btt {
+      bottom: 0;
+    }
+  }
+
+  .yzj-drawer__open {
+    .yzj-drawer {
+      @each $direction in $directions {
+        @include animation-in($direction);
+      }
+    }
+  }
 }
